@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import main from "../assets/images/main.svg";
 import Wrapper from "../assets/wrappers/LandingPage";
 import { Logo } from "../components";
@@ -23,7 +24,9 @@ const Landing = () => {
             Mumblecore franzen cliche, man bun drinking vinegar literally 8-bit
             jianbing mustache raclette.
           </p>
-          <button className="btn btn-hero">Login/Register</button>
+          <Link to="/register" className="btn btn-hero">
+            Login/Register
+          </Link>
         </div>
         {/* image */}
         <img src={main} alt="job hunt" className="img main-img" />
