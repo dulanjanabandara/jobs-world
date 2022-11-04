@@ -16,6 +16,10 @@ const Register = () => {
 
   //   global state and useNavigate
 
+  const toggleMember = () => {
+    setValues({ ...values, isMember: !values.isMember });
+  };
+
   const handleChange = (e) => {
     console.log(e.target);
   };
@@ -29,16 +33,18 @@ const Register = () => {
     <Wrapper className="full-page">
       <form className="form" onSubmit={onSubmit}>
         <Logo />
-        <h3>Login</h3>
+        <h3>{values.isMember ? "Login" : "Register"}</h3>
         {values.showAlert && <Alert />}
 
-        <FormRow
-          type="text"
-          name="name"
-          value={values.name}
-          handleChange={handleChange}
-          labelText="name"
-        />
+        {!values.isMember && (
+          <FormRow
+            type="text"
+            name="name"
+            value={values.name}
+            handleChange={handleChange}
+            labelText="name"
+          />
+        )}
 
         <FormRow
           type="email"
@@ -56,7 +62,16 @@ const Register = () => {
           labelText="password"
         />
 
-        <button className="btn btn-block">submit</button>
+        <button className="btn btn-block">
+          {values.isMember ? "Login" : "Register"}
+        </button>
+
+        <p>
+          {values.isMember ? "Not a member yet?" : "Already a member?"}
+          <button type="button" onClick={toggleMember} className="member-btn">
+            {values.isMember ? "Register" : "Login"}
+          </button>
+        </p>
       </form>
     </Wrapper>
   );
