@@ -30,7 +30,7 @@ const initialState = {
   token: token,
   userLocation: userLocation || "",
   jobLocation: userLocation || "",
-  showSidebar: false,
+  showSidebar: true,
 };
 
 const AppContext = createContext();
